@@ -9,8 +9,8 @@ export const create = async (req, res) => {
         if (!existingUser) {
             return res.status(404).json({ message: 'User not found' })
         }
-        const userId = await resumeServices.create(data)
-        res.status(201).json({ message: 'Created successfully', userId })
+        const candidateId = await resumeServices.create(data)
+        res.status(201).json({ message: 'Created successfully', candidateId })
     } catch (error) {
         handleError(res, 'Failed to create ', error)
     }

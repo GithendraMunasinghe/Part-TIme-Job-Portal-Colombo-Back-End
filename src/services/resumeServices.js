@@ -1,7 +1,7 @@
 import prisma from "../config/db.js";
 
 export const create = async (data) => {
-    const newResume = await prisma.candidateResume.create({ data: { data } })
+    const newResume = await prisma.candidateResume.create({ data: { ...data } })
     return newResume.id
 }
 
