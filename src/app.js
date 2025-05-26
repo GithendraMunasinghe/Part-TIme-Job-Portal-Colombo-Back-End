@@ -7,7 +7,6 @@ import userRouter from './routes/userRoutes.js'
 import resumeRouter from './routes/resumeRoutes.js'
 import adminRouter from './routes/adminRoutes.js'
 
-
 const app = express()
 app.use(helmet());
 app.use(morgan("dev"));
