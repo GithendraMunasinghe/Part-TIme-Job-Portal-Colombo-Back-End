@@ -1,17 +1,16 @@
 import jwt from 'jsonwebtoken'
-import { JWT_SECRET } from '../config/env'
-
+import { JwT_SECRET } from '../config/env.js'
 
 export const generatedToken = (payload) => {
-    if (!JWT_SECRET) {
-        throw new Error('JWT_SECRET is not defined');
+    if (!JwT_SECRET) {
+        throw new Error('JwT_SECRET is not defined');
     }
-    return jwt.sign(payload, JWT_SECRET, { expiresIn: '7d' });
+    return jwt.sign(payload, JwT_SECRET, { expiresIn: '7d' });
 }
 
 export const verifyToken = (token) => {
-    if (!JWT_SECRET) {
-        throw new Error('JWT_SECRET is not defined');
+    if (!JwT_SECRET) {
+        throw new Error('JwT_SECRET is not defined');
     }
-    return jwt.verify(token, JWT_SECRET)
+    return jwt.verify(token, JwT_SECRET)
 };
