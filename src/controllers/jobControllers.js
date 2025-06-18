@@ -1,3 +1,4 @@
+import { autoApplyForJob } from '../services/autoMatchService.js'
 import * as jobServices from '../services/jobServices.js'
 import { handleError } from '../utils/handleServerError.js'
 
@@ -23,6 +24,7 @@ export const getJobById = async (req, res) => {
 export const createJob = async (req, res) => {
     try {
         const jobId = await jobServices.create(req.body)
+        await autoApplyForJob(jobId)
         res.status(201).json({ id: jobId })
     } catch (error) {
         handleError(res, 'Failed to create job', error)
