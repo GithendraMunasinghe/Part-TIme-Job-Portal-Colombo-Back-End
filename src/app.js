@@ -6,6 +6,8 @@ import authRouter from './routes/authRoutes.js'
 import userRouter from './routes/userRoutes.js'
 import resumeRouter from './routes/resumeRoutes.js'
 import adminRouter from './routes/adminRoutes.js'
+import jobRouter from './routes/jobRoutes.js'
+import jobApplicationRouter from './routes/jobApplicationRoutes.js'
 
 const app = express()
 app.use(helmet());
@@ -21,6 +23,8 @@ app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 app.use('/api/resume', resumeRouter)
 app.use('/api/admin', adminRouter)
+app.use('/api/job', jobRouter)
+app.use('/api/application', jobApplicationRouter)
 
 app.use((req, res) => {
     res.status(404).json({ error: "Route Not Found" });
